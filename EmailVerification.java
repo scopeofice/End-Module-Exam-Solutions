@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class EmailTester {
 
@@ -12,7 +13,7 @@ public class EmailTester {
 		while (i < n) {
 			String s = sc.next();
 			arr[i] = s;
-			if (Character.isLowerCase(s.charAt(0)) && s.contains("@") && s.endsWith(".com") || s.endsWith(".in") || s.endsWith(".org")) {
+			if (Character.isLowerCase(s.charAt(0)) && Pattern.matches("[a-zA-Z0-9._%+-]+[@][a-zA-Z0-9.-]+[.](com|in|org)", s) && !Pattern.matches("[~!$%^&*_=+\\}\\{\\'?\\-.]+", s)) {
 				System.out.println("Valid");
 			} else {
 				System.out.println("Invalid");
